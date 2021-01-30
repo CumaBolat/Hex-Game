@@ -66,7 +66,7 @@ public class MainMenuGUI {
 		frmHex.getContentPane().add(boardSize);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16","88","22"}));
 		comboBox.setBounds(313, 44, 56, 22);
 		frmHex.getContentPane().add(comboBox);
 		//comboBox.add()

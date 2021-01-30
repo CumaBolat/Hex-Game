@@ -8,16 +8,12 @@ import javax.swing.JOptionPane;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
-public class GameScreenGUI implements Cloneable{
+import java.util.List;
+
+
+public class GameScreenGUI {
 
 	private JFrame frmHex;
 	
@@ -148,7 +144,7 @@ public class GameScreenGUI implements Cloneable{
 			b.addActionListener(new ActionListener() {
 				
 				@Override
-				public void actionPerformed(ActionEvent e) {					/*       here           */
+				public void actionPerformed(ActionEvent e) {			
 		
 					if (turn % 2 == 0) {
 						
@@ -183,7 +179,7 @@ public class GameScreenGUI implements Cloneable{
 							
 						}
 					}
-					checkedList.clear();
+					
 					b.setEnabled(false);
 					
 					if (turn == boardSize*boardSize) {
@@ -204,9 +200,7 @@ public class GameScreenGUI implements Cloneable{
 		}
 	
 		frmHex.setVisible(true);
-		
-		playGame();
-		
+	
 	}
 
 	public boolean isRed(int val) {
@@ -219,52 +213,45 @@ public class GameScreenGUI implements Cloneable{
 		
 		return false;
 	}
-	
-	public void playGame() {
-		
-		if (this.gameMode.equals("Computer vs User")) {
-			
-		}	
-	}
-	
-	
+
 	public boolean isGameOver(int row, int column, int[][] arr) {
 		if (column == boardSize - 1) return true;
 		
 		int[][] tempArr = arr;
 		tempArr[row][column] = 0;
+
 		if (tempArr[row][column + 1] == 1 && isGameOver(row, column + 1,tempArr) ) {
-			return true; //sağ
+			return true; 
 		}
 		
 		if (row < boardSize -1  && column < boardSize - 1 &&  tempArr[row + 1][column + 1] == 1 && isGameOver(row + 1, column + 1,tempArr) ) {
-			return true; //sağ alt
+			return true; 
 		}
 				
 		if (row >= 1 && tempArr[row - 1][column + 1] == 1 && isGameOver(row - 1, column + 1,tempArr) ) {
-			return true; //sağ üst
+			return true; 
 		}
 		
 		if (row >= 1 && tempArr[row + 1][column] == 1 && isGameOver(row + 1, column,tempArr) ) {
-			return true; //alt
+			return true;
 		}
 		
 		if (row >= 1 && tempArr[row - 1][column] == 1 && isGameOver(row - 1, column,tempArr) ) {
-			return true; //üst
+			return true; 
 		}
 		
 		if (row >= 1 && column >= 1 && tempArr[row - 1][column - 1] == 1 && isGameOver(row - 1, column,tempArr) ) {
-			return true; // sol üst
+			return true; 
 		}
 		if (column >= 1 && tempArr[row + 1][column - 1] == 1 && isGameOver(row + 1, column - 1, tempArr) ) {
-			return true; // sol alt
+			return true; 
 		}
 		if (column >= 1 && tempArr[row][column - 1] == 1 && isGameOver(row, column - 1,tempArr) ) {
-			return true; // sol
+			return true;
 		}
-		//this.checkedList.add(b);
+
 		tempArr[row][column] = 1;
-		//map.put(row,column);
+
 		return false;
 	}
 

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
 public class GameScreenGUI {
 
 	private JFrame frmHex;
@@ -35,8 +34,6 @@ public class GameScreenGUI {
 		arrPink = new int[boardSize][boardSize];
 		arrBlue = new int[boardSize][boardSize];
 		initialize();
-		
-		
 	}
 
 	private void initialize() {

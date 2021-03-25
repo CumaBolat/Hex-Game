@@ -24,11 +24,9 @@ public class MainMenuGUI {
 	
 	private JFrame frmHex;
 
-	
 	public MainMenuGUI() {
 		initialize();
 	}
-
 	
 	private void initialize() {
 		ButtonGroup bg = new ButtonGroup();
